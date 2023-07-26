@@ -29,7 +29,7 @@ module.exports = merge(baseWebpackConfig, cssWebpackConfig, {
   },
 
   stats: {
-    assets: false,
-    modules: false,
+    assets: true,
+    modules: true,
   },
 })

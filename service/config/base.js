@@ -1,6 +1,6 @@
 'use strict'
 
-const { DefinePlugin } = require('webpack')
+const { DefinePlugin, SourceMapDevToolPlugin } = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
@@ -13,7 +13,9 @@ const { ModuleFederationPlugin } = require('webpack').container
 
 const config = require('../project.config')
 
-const isProd = process.env.NODE_ENV === 'production'
+// const isProd = process.env.NODE_ENV === 'production'
+const isProd = true
+
 const outputFileName = `js/[name]${isProd ? '.[contenthash:8]' : ''}.js`
 const dependencies = require('../../package.json').dependencies // new
 // https://github.com/akxcv/vuera
