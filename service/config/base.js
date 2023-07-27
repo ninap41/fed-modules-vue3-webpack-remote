@@ -13,18 +13,15 @@ const { ModuleFederationPlugin } = require('webpack').container
 
 const config = require('../project.config')
 
-// const isProd = process.env.NODE_ENV === 'production'
-const isProd = true
+// const isProd = process.env.NODE_ENV === 'production' 
+const isProd = true // new 07/27/23
 
-const outputFileName = `js/[name]${isProd ? '.[contenthash:8]' : ''}.js`
 const dependencies = require('../../package.json').dependencies // new
 // https://github.com/akxcv/vuera
 module.exports = {
   context: process.cwd(),
-
   experiments: {
-    // new
-    outputModule: true,
+    outputModule: true, // new 07/27/23
   },
 
   entry: {
@@ -47,8 +44,8 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
-      // new
       name: 'Remote',
+      // library: { type: 'var', name: 'Remote' },
       filename: 'remoteEntry.js',
       exposes: {
         './Test': './src/components/TestComponent',

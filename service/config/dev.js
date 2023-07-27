@@ -8,9 +8,7 @@ const config = require('../project.config')
 
 module.exports = merge(baseWebpackConfig, cssWebpackConfig, {
   mode: 'development',
-
-  devtool: 'eval-cheap-module-source-map',
-
+  devtool: false, // new 07/27/23
   devServer: {
     historyApiFallback: {
       rewrites: [{ from: /./, to: '/index.html' }],
@@ -29,7 +27,7 @@ module.exports = merge(baseWebpackConfig, cssWebpackConfig, {
   },
 
   stats: {
-    assets: true,
-    modules: true,
+    assets: true, // new 07/27/23
+    modules: true, // new 07/27/23
   },
 })
